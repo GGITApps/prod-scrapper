@@ -22,14 +22,19 @@ app.get('/', function(req, res) {
             const browser = await puppeteer.launch({
                 args: ['--no-sandbox', '--disable-setuid-sandbox']
             });
+            const urls = ["google.com","twitter.com","facebook.com"]
+            for (let i = 0; i < urls.length; i++) {
+                const url = urls[i];
+                await page.goto(`${url}`);
+                await page.waitForNavigation({ waitUntil: 'networkidle' });
+                await page.screenshot().then(function(buffer) {
+                    res.setHeader('Content-Disposition', 'attachment;filename="' + urlToScreenshot + '.png"');
+                    res.setHeader('Content-Type', 'image/png');
+                    res.send(buffer)
+                });
+            }
 
-            const page = await browser.newPage();
-            await page.goto(urlToScreenshot);
-            await page.screenshot().then(function(buffer) {
-                res.setHeader('Content-Disposition', 'attachment;filename="' + urlToScreenshot + '.png"');
-                res.setHeader('Content-Type', 'image/png');
-                res.send(buffer)
-            });
+            
 
             await browser.close();
         })();
