@@ -7,23 +7,52 @@ const port = process.env.PORT || 8080;
 
 
 
+//-----------------------
+const timer = {};
+var timerNames = JSON.parse(fs.readFileSync('json/cursos.json', 'utf8'));
+timerNames.forEach(element=>{
+    timer[Object.values(element)[0]]= new Date();
+})
+console.log(timer);
+//-----------------------
+
+
+
 
 app.get('/', function(req, res) {
     var prefix =req.query.prefix;
     var nrc =req.query.nrc;
-    scrapper.scrappearValores(prefix);
-    console.log("scrapeando");
-    setTimeout(function(){
+    var dateNow= new Date();
+    if(dateNow.getMinutes()-timer[prefix].getMinutes()>=5){
+        scrapper.scrappearValores(prefix);
+        console.log("scrapeando");
+        setTimeout(function(){
+            respuesta = asignarAJson(prefix,nrc);
+            console.log(respuesta);
+        if(respuesta==""){
+            res.send("prefijo incorrecto");
+        }else{
+            
+            res.json(JSON.stringify(respuesta));
+            console.log(JSON.stringify(respuesta))
+        }
+        },10*1000)
+    }else{
         respuesta = asignarAJson(prefix,nrc);
         console.log(respuesta);
-    if(respuesta==""){
-        res.send("prefijo incorrecto");
-    }else{
+        if(respuesta==""){
+            let error= "prefijo incorrecto";
+            res.json(JSON.stringify(error));
+        }else{
         
-        res.json(JSON.stringify(respuesta));
-        console.log(JSON.stringify(respuesta))
+            res.json(JSON.stringify(respuesta));
+            console.log(JSON.stringify(respuesta))
+        }   
+    
+    
+    
     }
-    },10*1000)
+
     
     
 });
