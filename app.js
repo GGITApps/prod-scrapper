@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 var scrapper = require('./scrapper.js')
-var fs = require('fs');
+
 const app = express();
 const port = process.env.PORT || 8080;
 
