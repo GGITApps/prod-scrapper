@@ -23,7 +23,8 @@ app.get('/', function(req, res) {
     var prefix =req.query.prefix;
     var nrc =req.query.nrc;
     var dateNow= new Date();
-    if(dateNow.getMinutes()-timer[prefix].getMinutes()>=5){
+    if((dateNow.getMinutes() - timer[prefix].getMinutes())>=5){
+        timer[prefix]= dateNow;
         scrapper.scrappearValores(prefix);
         console.log("scrapeando");
         setTimeout(function(){
