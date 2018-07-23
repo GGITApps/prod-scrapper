@@ -69,7 +69,7 @@ function asignarAJson(prefix,nrc){
             
         });
         
-        var retorno= [];
+        var retorno;
         nome.forEach(element=>{
             
 
@@ -78,7 +78,7 @@ function asignarAJson(prefix,nrc){
                 retorno= {nrc:element[0],total:element[1].capacidad,disponible:element[1].disponible};
             }
         });
-        
+        console.log(retorno);
         return retorno;
 
     }catch(e){
