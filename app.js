@@ -19,8 +19,9 @@ app.get('/', function(req, res) {
     if(respuesta==""){
         res.send("prefijo incorrecto");
     }else{
-        res.send("nrc:"+respuesta[0]+"Total:"+respuesta[1]+"Libres:"+respuesta[2])
+        
         res.json(JSON.stringify(respuesta));
+        console.log(JSON.stringify(respuesta))
     }
     },10*1000)
     
@@ -42,7 +43,7 @@ function asignarAJson(prefix,nrc){
 
             if(nrc== element[0]){
                 
-                retorno= [element[0],element[1].capacidad,element[1].disponible];
+                retorno= [{nrc:element[0]},{capacidad:element[1].capacidad},{disponible:element[1].disponible}];
             }
         });
         
