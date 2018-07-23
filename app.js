@@ -9,11 +9,11 @@ const port = process.env.PORT || 8080;
 
 //-----------------------
 const timer = {};
-const nomes= []
+
 var timerNames = JSON.parse(fs.readFileSync('json/cursos.json', 'utf8'));
 timerNames.forEach(element=>{
     timer[Object.values(element)[0]]= new Date();
-    nomes.push(element);
+    
 })
 console.log(timer);
 //-----------------------
@@ -25,9 +25,6 @@ app.get('/', function(req, res) {
     var prefix =req.query.prefix;
     var nrc =req.query.nrc;
     var dateNow= new Date();
-
-
-    
     if((dateNow.getMinutes() - timer[prefix].getMinutes())>=5){
         timer[prefix]= dateNow;
         scrapper.scrappearValores(prefix);
