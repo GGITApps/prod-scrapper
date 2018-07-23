@@ -15,12 +15,13 @@ app.get('/', function(req, res) {
     console.log("scrapeando");
     setTimeout(function(){
         respuesta = asignarAJson(prefix,nrc);
+        console.log(respuesta);
     if(respuesta==""){
         res.send("prefijo incorrecto");
     }else{
         res.send("nrc:"+respuesta[0]+"Total:"+respuesta[1]+"Libres:"[2])
     }
-    },12*1000)
+    },20*1000)
     
     
 });
