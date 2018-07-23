@@ -9,9 +9,11 @@ const port = process.env.PORT || 8080;
 
 //-----------------------
 const timer = {};
+const nomes= []
 var timerNames = JSON.parse(fs.readFileSync('json/cursos.json', 'utf8'));
 timerNames.forEach(element=>{
     timer[Object.values(element)[0]]= new Date();
+    nomes.push(element);
 })
 console.log(timer);
 //-----------------------
@@ -23,6 +25,9 @@ app.get('/', function(req, res) {
     var prefix =req.query.prefix;
     var nrc =req.query.nrc;
     var dateNow= new Date();
+
+
+    
     if((dateNow.getMinutes() - timer[prefix].getMinutes())>=5){
         timer[prefix]= dateNow;
         scrapper.scrappearValores(prefix);
@@ -34,7 +39,7 @@ app.get('/', function(req, res) {
             res.send("prefijo incorrecto");
         }else{
             
-            res.json(JSON.stringify(respuesta));
+            res.json(respuesta);
             console.log(JSON.stringify(respuesta))
         }
         },10*1000)
@@ -46,7 +51,7 @@ app.get('/', function(req, res) {
             res.json(JSON.stringify(error));
         }else{
         
-            res.json(JSON.stringify(respuesta));
+            res.json(respuesta);
             console.log(JSON.stringify(respuesta))
         }   
     
@@ -55,10 +60,10 @@ app.get('/', function(req, res) {
     }
 
     
-    
 });
 function asignarAJson(prefix,nrc){
     try{
+        
         var obj = JSON.parse(fs.readFileSync('json/'+prefix+'.json', 'utf8'));
         
         var nome=[];
@@ -73,7 +78,7 @@ function asignarAJson(prefix,nrc){
 
             if(nrc== element[0]){
                 
-                retorno= [{nrc:element[0]},{capacidad:element[1].capacidad},{disponible:element[1].disponible}];
+                retorno= {nrc:element[0],total:element[1].capacidad,disponible:element[1].disponible};
             }
         });
         
