@@ -19,28 +19,33 @@ app.get('/', function(req, res) {
     if(respuesta==""){
         res.send("prefijo incorrecto");
     }else{
-        res.send("nrc:"+respuesta[0]+"Total:"+respuesta[1]+"Libres:"[2])
+        res.send("nrc:"+respuesta[0]+"Total:"+respuesta[1]+"Libres:"+respuesta[2])
+        res.json(JSON.stringify(respuesta));
     }
-    },20*1000)
+    },10*1000)
     
     
 });
 function asignarAJson(prefix,nrc){
     try{
         var obj = JSON.parse(fs.readFileSync('json/'+prefix+'.json', 'utf8'));
-        console.log("encontro el archivo");
+        
         var nome=[];
         obj.forEach(element => {
-            nome=Object.values(element);
+            nome.push(Object.values(element));
+            
         });
-        console.log("todo salio bien");
+        
         var retorno= [];
         nome.forEach(element=>{
+            
+
             if(nrc== element[0]){
-                retorno= [element[0],element[1],element[2]];
+                
+                retorno= [element[0],element[1].capacidad,element[1].disponible];
             }
         });
-        console.log("Retorno :3");
+        
         return retorno;
 
     }catch(e){
