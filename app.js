@@ -34,7 +34,7 @@ app.get('/', function(req, res) {
             res.send("prefijo incorrecto");
         }else{
             
-            res.json(JSON.stringify(respuesta));
+            res.json(respuesta);
             console.log(JSON.stringify(respuesta))
         }
         },10*1000)
@@ -43,10 +43,10 @@ app.get('/', function(req, res) {
         console.log(respuesta);
         if(respuesta==""){
             let error= "prefijo incorrecto";
-            res.json(JSON.stringify(error));
+            res.json(error);
         }else{
         
-            res.json(JSON.stringify(respuesta));
+            res.json(respuesta);
             console.log(JSON.stringify(respuesta))
         }   
     
