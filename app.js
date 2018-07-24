@@ -10,13 +10,12 @@ app.use(function(req, res, next) {
     next();
   });
 
-  const dateStart=new Date();
+
 //-----------------------
 const timer = {};
-
 var timerNames = JSON.parse(fs.readFileSync('json/cursos.json', 'utf8'));
 timerNames.forEach(element=>{
-    timer[Object.values(element)[0]]= dateStart;
+    timer[Object.values(element)[0]]= new Date();
 })
 console.log(timer);
 //-----------------------
@@ -28,7 +27,6 @@ app.get('/', function(req, res) {
     var prefix =req.query.prefix;
     var nrc =req.query.nrc;
     var dateNow= new Date();
-
     if((dateNow.getMinutes() - timer[prefix].getMinutes())>=5){
         timer[prefix]= dateNow;
         scrapper.scrappearValores(prefix);
