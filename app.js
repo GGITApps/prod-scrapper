@@ -65,29 +65,33 @@ app.get('/', function(req, res) {
 });
 function asignarAJson(prefix,nrc){
     try{
-        
+        console.log(nrc)
         var obj = JSON.parse(fs.readFileSync('json/'+prefix+'.json', 'utf8'));
         console.log(obj)
         var nome=[];
         obj.forEach(element => {
+            console.log
             nome.push(Object.values(element));
             
         });
         console.log(nome)
         var retorno= [];
         nome.forEach(element=>{
-            
+            console.log(element[0]+"---"+nrc)
+            console.log(element[0]==nrc)
             if(nrc == element[0]){
                 console.log("entró")
                 retorno.push(element[0])
                 retorno.push(element[1].capacidad)
-                retorno.push(element[2].disponible)
+                retorno.push(element[1].disponible)
+                console.log(retorno.length);
             }
         });
         console.log(retorno.length);
         return retorno;
 
     }catch(e){
+        console.log("me totee"+e)
         return "";
     }
 }
