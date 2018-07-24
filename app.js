@@ -74,7 +74,7 @@ function asignarAJson(prefix,nrc){
 
             if(nrc== element[0]){
                 
-                retorno= [{nrc:element[0]},{capacidad:element[1].capacidad},{disponible:element[1].disponible}];
+                retorno= [element[0],element[1].capacidad,element[1].disponible];
             }
         });
         
