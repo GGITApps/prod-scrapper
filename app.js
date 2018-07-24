@@ -10,7 +10,7 @@ app.use(function(req, res, next) {
     next();
   });
 
-const dateStart=new Date();
+  const dateStart=new Date();
 //-----------------------
 const timer = {};
 
@@ -28,23 +28,7 @@ app.get('/', function(req, res) {
     var prefix =req.query.prefix;
     var nrc =req.query.nrc;
     var dateNow= new Date();
-    if((dateNow.getMinutes()- dateStart.getMinutes())<=5){
-        timer[prefix]= dateNow;
-        scrapper.scrappearValores(prefix);
-        console.log("scrapeando");
-        setTimeout(function(){
-            respuesta = asignarAJson(prefix,nrc);
-            console.log(respuesta);
-        if(respuesta==""){
-            console.log("entro al -----")
-            res.send("prefijo incorrecto");
-        }else{
-            console.log("entro al +++++")
-            res.json(respuesta);
-            console.log(JSON.stringify(respuesta))
-        }
-        },10*1000)
-    }else{
+
     if((dateNow.getMinutes() - timer[prefix].getMinutes())>=5){
         timer[prefix]= dateNow;
         scrapper.scrappearValores(prefix);
@@ -78,7 +62,7 @@ app.get('/', function(req, res) {
     
     }
 
-}
+    
     
 });
 function asignarAJson(prefix,nrc){
