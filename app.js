@@ -49,7 +49,7 @@ app.get('/', function(req, res) {
         if(respuesta==""){
             console.log("entro al ******")
             let error= "prefijo incorrecto";
-            res.json(error);
+            res.send(error);
         }else{
             console.log("entro al //////")
             res.json(respuesta);
@@ -67,7 +67,7 @@ function asignarAJson(prefix,nrc){
     try{
         
         var obj = JSON.parse(fs.readFileSync('json/'+prefix+'.json', 'utf8'));
-        
+        console.log(obj)
         var nome=[];
         obj.forEach(element => {
             nome.push(Object.values(element));
@@ -76,8 +76,9 @@ function asignarAJson(prefix,nrc){
         console.log(nome)
         var retorno= [];
         nome.forEach(element=>{
-            console.log("entró")
+            
             if(nrc == element[0]){
+                console.log("entró")
                 retorno.push(element[0])
                 retorno.push(element[1].capacidad)
                 retorno.push(element[2].disponible)
