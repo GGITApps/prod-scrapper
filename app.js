@@ -36,10 +36,10 @@ app.get('/', function(req, res) {
             console.log(respuesta);
         if(respuesta==""){
             console.log("entro al -----")
-            res.send("prefijo incorrecto");
+            res.send("Lo sentimos debido a un cambio en la plataforma de registro los cupos ya no se despliegan correctamente");
         }else{
             console.log("entro al +++++")
-            res.json(respuesta);
+            res.json(["Lo sentimos debido a un cambio en la plataforma de registro los cupos ya no se despliegan correctamente","Lo sentimos debido a un cambio en la plataforma de registro los cupos ya no se despliegan correctamente","Lo sentimos debido a un cambio en la plataforma de registro los cupos ya no se despliegan correctamente"]);
             console.log(JSON.stringify(respuesta))
         }
         },10*1000)
@@ -48,11 +48,11 @@ app.get('/', function(req, res) {
         console.log(respuesta);
         if(respuesta==""){
             console.log("entro al ******")
-            let error= "prefijo incorrecto";
+            let error= "Lo sentimos debido a un cambio en la plataforma de registro los cupos ya no se despliegan correctamente";
             res.send(error);
         }else{
             console.log("entro al //////")
-            res.json(respuesta);
+            res.json(["Lo sentimos debido a un cambio en la plataforma de registro los cupos ya no se despliegan correctamente","Lo sentimos debido a un cambio en la plataforma de registro los cupos ya no se despliegan correctamente","Lo sentimos debido a un cambio en la plataforma de registro los cupos ya no se despliegan correctamente"]);
             console.log(JSON.stringify(respuesta))
         }   
     
