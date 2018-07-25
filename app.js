@@ -36,10 +36,10 @@ app.get('/', function(req, res) {
             console.log(respuesta);
         if(respuesta==""){
             console.log("entro al -----")
-            res.send("<span style='color:#cc0000;'>Lo sentimos debido a un cambio en la plataforma de registro es imposible seguir actualizando los datos, Agradecemos a toda la comunidad uniandina por su apoyo y esperamos retomar el servicio para 2019-1.</span>");
+            res.send("<span style='color:#cc0000;'>Lo sentimos debido a un cambio en la plataforma de registro es imposible seguir actualizando los datos, Agradecemos a toda la comunidad uniandina por su apoyo y esperamos retomar el servicio para 2019-1.</span></p><br><img src='https://media.giphy.com/media/JDKxRN0Bvmm2c/giphy.gif'><p>");
         }else{
             console.log("entro al +++++")
-            res.send("<span style='color:#cc0000;'>Lo sentimos debido a un cambio en la plataforma de registro es imposible seguir actualizando los datos, Agradecemos a toda la comunidad uniandina por su apoyo y esperamos retomar el servicio para 2019-1.</span>");
+            res.send("<span style='color:#cc0000;'>Lo sentimos debido a un cambio en la plataforma de registro es imposible seguir actualizando los datos, Agradecemos a toda la comunidad uniandina por su apoyo y esperamos retomar el servicio para 2019-1.</span></p><br><img src='https://media.giphy.com/media/JDKxRN0Bvmm2c/giphy.gif'><p>");
             console.log(JSON.stringify(respuesta))
         }
         },10*1000)
@@ -48,11 +48,11 @@ app.get('/', function(req, res) {
         console.log(respuesta);
         if(respuesta==""){
             console.log("entro al ******")
-            let error= "<span style='color:#cc0000;'>Lo sentimos debido a un cambio en la plataforma de registro es imposible seguir actualizando los datos, Agradecemos a toda la comunidad uniandina por su apoyo y esperamos retomar el servicio para 2019-1.</span>";
+            let error= "<span style='color:#cc0000;'>Lo sentimos debido a un cambio en la plataforma de registro es imposible seguir actualizando los datos, Agradecemos a toda la comunidad uniandina por su apoyo y esperamos retomar el servicio para 2019-1.</span></p><br><img src='https://media.giphy.com/media/JDKxRN0Bvmm2c/giphy.gif'><p>";
             res.send(error);
         }else{
             console.log("entro al //////")
-            res.send("<span style='color:#cc0000;'>Lo sentimos debido a un cambio en la plataforma de registro es imposible seguir actualizando los datos, Agradecemos a toda la comunidad uniandina por su apoyo y esperamos retomar el servicio para 2019-1.</span>");
+            res.send("<span style='color:#cc0000;'>Lo sentimos debido a un cambio en la plataforma de registro es imposible seguir actualizando los datos, Agradecemos a toda la comunidad uniandina por su apoyo y esperamos retomar el servicio para 2019-1.</span></p><br><img src='https://media.giphy.com/media/JDKxRN0Bvmm2c/giphy.gif'><p>");
             console.log(JSON.stringify(respuesta))
         }   
     
