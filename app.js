@@ -36,10 +36,10 @@ app.get('/', function(req, res) {
             console.log(respuesta);
         if(respuesta==""){
             console.log("entro al -----")
-            res.send("Lo sentimos debido a un cambio en la plataforma de registro los cupos ya no se despliegan correctamente");
+            res.send("<span style='color:#cc0000;'>Lo sentimos debido a un cambio en la plataforma de registro es imposible seguir actualizando los datos, Agradecemos a toda la comunidad uniandina por su apoyo y esperamos retomar el servicio para 2019-1.</span>");
         }else{
             console.log("entro al +++++")
-            res.json(["Lo sentimos debido a un cambio en la plataforma de registro los cupos ya no se despliegan correctamente","Lo sentimos debido a un cambio en la plataforma de registro los cupos ya no se despliegan correctamente","Lo sentimos debido a un cambio en la plataforma de registro los cupos ya no se despliegan correctamente"]);
+            res.send("<span style='color:#cc0000;'>Lo sentimos debido a un cambio en la plataforma de registro es imposible seguir actualizando los datos, Agradecemos a toda la comunidad uniandina por su apoyo y esperamos retomar el servicio para 2019-1.</span>");
             console.log(JSON.stringify(respuesta))
         }
         },10*1000)
@@ -48,11 +48,11 @@ app.get('/', function(req, res) {
         console.log(respuesta);
         if(respuesta==""){
             console.log("entro al ******")
-            let error= "Lo sentimos debido a un cambio en la plataforma de registro los cupos ya no se despliegan correctamente";
+            let error= "<span style='color:#cc0000;'>Lo sentimos debido a un cambio en la plataforma de registro es imposible seguir actualizando los datos, Agradecemos a toda la comunidad uniandina por su apoyo y esperamos retomar el servicio para 2019-1.</span>";
             res.send(error);
         }else{
             console.log("entro al //////")
-            res.json(["Lo sentimos debido a un cambio en la plataforma de registro los cupos ya no se despliegan correctamente","Lo sentimos debido a un cambio en la plataforma de registro los cupos ya no se despliegan correctamente","Lo sentimos debido a un cambio en la plataforma de registro los cupos ya no se despliegan correctamente"]);
+            res.send("<span style='color:#cc0000;'>Lo sentimos debido a un cambio en la plataforma de registro es imposible seguir actualizando los datos, Agradecemos a toda la comunidad uniandina por su apoyo y esperamos retomar el servicio para 2019-1.</span>");
             console.log(JSON.stringify(respuesta))
         }   
     
