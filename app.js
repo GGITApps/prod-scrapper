@@ -18,6 +18,7 @@ timerNames.forEach(element=>{
     timer[Object.values(element)[0]]= new Date();
 })
 console.log(timer);
+
 //-----------------------
 
 
